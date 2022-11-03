@@ -23,7 +23,7 @@
             margin-top: 30px;
             margin-left: 560px;
             background: #CCCCCC;
-           height: 150px;
+           height: 200px;
            width: 450px;
             position: relative;
             
@@ -34,42 +34,47 @@
 </head>
 <body>
     <center>
-        <table border="4" id="myTable">
-            <thread>
-                <tr id="updatename">
-                    <th>Name</th>
-                    <td><input type="text" name="fname" id="fname" oninput="addnq()"></td>
-                </tr>
-            </thread>
-            <tbody>
-                <tr>
-                    <th>Qualification</th>
-                    <td><input type="text" name="fq" id="fq" oninput="addnq()"></td>
-                </tr>
-                <tr id="hh">
-                    <th>Hobbies</th>
-                    <td><select name="Hobbies" id="Hobbies" multiple>
-                        <option value="Singing">Singing</option>
-                        <option value="Dancing">Dancing</option>
-                        <option value="Cricket">Cricket</option>
-                        <option value="Football">Football</option>
-                        <option value="Skating">Skating</option>
-                    </select>
-                </td>
+        
+                    <div id="name">
+                    <th>Name :&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <td><input type="text" name="Name" id="client_name" oninput="addnq()"></td>
+                    </div>
+                    <br>
+                    <div id="Qualification">
+                        <th>Qualification :</th>
+                        <td><input type="text" name="Qualification" id="client_qualification" oninput="addnq()"></td>
+                    </div>
+                    <br>
+                    <div id="Hobbies">
+                    <th>Hobbies :</th>
+                    <td>
+                        <input type="checkbox" id="Singing" name="Singing" value="Singing" onclick="addHobbies()">
+                        <label for="Singing">Singing</label><br>
+                        <input type="checkbox" id="Dancing" name="Dancing" value="Dancing" onclick="addHobbies()">
+                        <label for="Dancing">Dancing</label><br>
+                        <input type="checkbox" id="Cricket" name="Cricket" value="Cricket" onclick="addHobbies()">
+                        <label for="Cricket">Cricket</label><br>
+                        <input type="checkbox" id="Football" name="Football" value="Football" onclick="addHobbies()">
+                        <label for="Football">Football</label><br>
+                        <input type="checkbox" id="Skating" name="Skating" value="Skating" onclick="addHobbies()">
+                        <label for="Skating">Skating</label><br>
+                    </td>
+                    </div>
                     
-                </tr>
                 
-            </tbody>
-            </table>
     </center>
-
-    <div id="paragraph" class="px1" >
+     <div class="px1">
+    <div id="header">
      <p>I, ______, would like to apply for an internship at your organisation.<br>
-        My Qualification is __________.<br>
-        My hobbies are ______, ________ & __________.<br>
-        Thanking you,<br>
+        My Qualification is __________.</p>
+    </div>
+    <div id="body">
+        <p>My hobbies are ______, ________ & __________.</p>
+    </div>
+    <div id="footer">
+        <p>Thanking you,<br>
         Your Sincerely<br>
-        _____________</p>
+        _____________.</p>
 
     </div>
 
