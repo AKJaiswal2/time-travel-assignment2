@@ -1,6 +1,9 @@
 let arr = [];
+let extra=[];
+
 let hobbies="";
 let name="";
+let counter=1;
 function addnq(){
    name = document.getElementById('client_name').value;
    let qualification = document.getElementById('client_qualification').value;
@@ -14,6 +17,13 @@ function addnq(){
 function addHobbies(){
   hobbies="";
   arr=[];
+  let k=0;
+  if(counter>1)
+{
+  let id = "extrahobbies"+counter;
+  let extrahobbies = document.getElementById(id).value;
+  extra[counter-2]=extrahobbies;
+}
 
   let Singing = document.getElementById('Singing');
   if(Singing.checked)
@@ -30,6 +40,10 @@ function addHobbies(){
   let skating = document.getElementById('Skating');
   if(skating.checked)
   arr.push(skating.value);
+  for(let i=0;i<extra.length;i++)
+  {
+    arr.push(extra[i]);
+  }
   for(let i=0;i<arr.length;i++)
   {
     if(i==0)
@@ -41,10 +55,29 @@ function addHobbies(){
     hobbies=hobbies+","+arr[i];
     }
   }
+   for(let i=0;i<hobbies.length;i++)
+   {
+      if(hobbies.charAt(i)==',')
+      {
+        k=i;
+      }
+   }
+   if(k!=0)
+      {
+        let result = hobbies.slice(0,k);
+        let result2 = hobbies.slice(k+1,hobbies.length);
+        hobbies=result+"&"+result2;
+      }
+
+
+
     
   
   let body = document.getElementById('body');
-  body.innerHTML=`My hobbies are ${hobbies}.`;
+  if(arr.length<=1)
+  body.innerHTML=`My Hobbie is ${hobbies}.`;
+  else
+  body.innerHTML=`My Hobbies are ${hobbies}`;
 
 
 }
@@ -55,4 +88,12 @@ function addfooter()
   footer.innerHTML=`Thanking you,<br>
   Your Sincerely<br>
   ${name}.`;
+}
+
+function creatediv()
+{
+  let fetch = document.getElementById('fetcher');
+  counter++;
+  fetch.innerHTML =`<input type="text" placeholder="Add Hobbies..." id='extrahobbies${counter}' oninput="addHobbies()">`;
+  
 }
